@@ -148,17 +148,20 @@ SBCore.SBShop.Form = (function () {
         }
     };
 
-    function executeWebApi(func) {
+    async function executeWebApi(func) {
         if (typeof Xrm === "undefined") Xrm = parent.Xrm;
 
-        Xrm.WebApi.online.execute(func).then((response) => {
-            if (response.ok) {
-                console.log("Status: %s %s", response.status, response.statusText);
-            }
-        })
-        .catch((error) => {
-            console.error(error.message);
-        });
+        const response = await Xrm.WebApi.online.execute(func);
+
+        if (response.ok) {
+            console.log("Status: %s %s", response.status, response.statusText);
+            const json = await response.json();
+            const res = await JSON.parse(json.Response);
+            return res;
+        }
+        else {
+            console.error(response.error.message);
+        }
     }
 
     /************************************************************************************

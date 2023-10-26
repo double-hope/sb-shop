@@ -20,10 +20,10 @@ SBContact.SBShop.Core = (function () {
         },
         IsValidationNeeded: false,
         ActionNames: {
-            DublicatedPhoneActionName: "SearchDublicatedPhone",
+            DublicatedPhoneActionName: "new_SearchDublicatedPhone",
             SendExcelActionName: "new_SendExcelFlow",
             RetrieveLogicalNamesActionName: "new_RetrieveLogicalNames",
-            RetrieveViewNamesActionName: "RetrieveViewNames"
+            RetrieveViewNamesActionName: "new_RetrieveViewNames"
         },
         WebResourceNames: {
             ExportToExcel: "sb_exporttoexcel.sb_shop.html"
@@ -34,7 +34,7 @@ SBContact.SBShop.Core = (function () {
     * Page events
     ************************************************************************************/
 
-    function callSearchDublicatedPhoneAction(context) {
+    async function callSearchDublicatedPhoneAction(context) {
         formContext = context;
 
         if (SBCore.SBShop.Form.GetEventArgs(formContext).isDefaultPrevented()) {
@@ -55,7 +55,6 @@ SBContact.SBShop.Core = (function () {
             return;
         }
 
-        const globalContext = SBCore.SBShop.Form.GetGlobalContext();
         const mobilephone = SBCore.SBShop.Form.GetAttribute(layout.Fields.MobilePhone);
 
         if (mobilephone == null) {
@@ -64,79 +63,42 @@ SBContact.SBShop.Core = (function () {
 
         SBCore.SBShop.Form.GetEventArgs(formContext).preventDefault();
 
-        const serverURL = globalContext.getClientUrl();
+        const props = {
+            PhoneNumber: SBCore.SBShop.Form.GetValue(mobilephone)
+        }
+        var dublicatedPhoneFunc = new SBContact.SBShop.Core.ConfigureAction(props, layout.ActionNames.DublicatedPhoneActionName);
 
-        const data = {
-            ActionName: layout.ActionNames.DublicatedPhoneActionName,
-            Parameters: JSON.stringify({
-                PhoneNumber: SBCore.SBShop.Form.GetValue(mobilephone),
-            }),
-        };
+        const res = await SBCore.SBShop.Form.ExecuteWebApi(dublicatedPhoneFunc);
+        const value = await JSON.parse(res.Value);
 
-        fetch(`${serverURL}/api/data/v9.2/new_${layout.ActionNames.DublicatedPhoneActionName}`,
-            {
-                method: "POST",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json; charset=utf-8",
-                    "OData-MaxVersion": "4.0",
-                    "OData-Version": "4.0"
-                },
-                body: JSON.stringify(data),
+        if (value.DublicatedUserId) {
+            if (saveMode !== layout.SaveMode.Autosave) {
+
+                const callback = () => {
+                    var pageInput = {
+                        pageType: "entityrecord",
+                        entityName: SBCore.SBShop.Form.EntityNames.Contact,
+                        entityId: res.DublicatedUserId,
+                    };
+                    SBCore.SBShop.UI.NavigateTo(pageInput, 2, 1, 50);
+                }
+
+                var confirmStrings = { text: `Account with mobile phone ${SBCore.SBShop.Form.GetValue(mobilephone)} already exists! Do you wanna see it?`, title: "Attention" };
+                var confirmOptions = { height: 200, width: 450 };
+                SBCore.SBShop.UI.OpenConfirmDialog(confirmStrings, confirmOptions, callback);
             }
-        )
-            .then((res) => res.json())
-            .then((res) => {
-                if ("error" in res) {
-                    throw res.error;
-                }
-                return JSON.parse(res.Response)
-            })
-            .then((res) => JSON.parse(res.Value))
-            .then((res) => {
-                if (res.DublicatedUserId) {
-                    if (saveMode !== layout.SaveMode.Autosave) {
+        }
+        else {
+            layout.IsValidationNeeded = false;
 
-                        const callback = () => {
-                            var pageInput = {
-                                pageType: "entityrecord",
-                                entityName: SBCore.SBShop.Form.EntityNames.Contact,
-                                entityId: res.DublicatedUserId,
-                            };
-                            SBCore.SBShop.UI.NavigateTo(pageInput, 2, 1, 50);
-                        }
-
-                        var confirmStrings = { text: `Account with mobile phone ${SBCore.SBShop.Form.GetValue(mobilephone)} already exists! Do you wanna see it?`, title: "Attention" };
-                        var confirmOptions = { height: 200, width: 450 };
-                        SBCore.SBShop.UI.OpenConfirmDialog(confirmStrings, confirmOptions, callback);
-                    }
-                }
-                else {
-                    layout.IsValidationNeeded = false;
-
-                    if (saveMode === layout.SaveMode.Save || saveMode === layout.SaveMode.Autosave) {
-                        SBCore.SBShop.Form.Save();
-                    } else if (saveMode === layout.SaveMode.SaveAndClose) {
-                        SBCore.SBShop.Form.SaveWithSaveMode(SBCore.SBShop.Form.SaveModes.SaveAndClose);
-                    } else {
-                        SBCore.SBShop.Form.SaveWithSaveMode(SBCore.SBShop.Form.SaveModes.SaveAndNew);
-                    }
-                }
-
-            })
-            .catch((err) => {
-                if (saveMode !== layout.SaveMode.Autosave) {
-                    SBCore.SBShop.UI.OpenAlertDialog(`An error occured: ${err.message}`);
-                }
-            });
-    }
-
-    function configureAction(props, actionName) {
-        const underscoreIndex = actionName.indexOf("_");
-
-        this.OperationName = actionName;
-        this.ActionName = actionName.substring(underscoreIndex);
-        this.Parameters = JSON.stringify(props);
+            if (saveMode === layout.SaveMode.Save || saveMode === layout.SaveMode.Autosave) {
+                SBCore.SBShop.Form.Save();
+            } else if (saveMode === layout.SaveMode.SaveAndClose) {
+                SBCore.SBShop.Form.SaveWithSaveMode(SBCore.SBShop.Form.SaveModes.SaveAndClose);
+            } else {
+                SBCore.SBShop.Form.SaveWithSaveMode(SBCore.SBShop.Form.SaveModes.SaveAndNew);
+            }
+        }
     }
 
     function sendExcelFileActionCall(viewName, logicalName) {
@@ -155,82 +117,23 @@ SBContact.SBShop.Core = (function () {
             LogicalNamePrefix: logicalName
         }
 
-        var exportFunc = new SBContact.SBShop.Core.ConfigureAction(props, layout.ActionNames.SendExcelActionName);
+        var retrieveFunc = new SBContact.SBShop.Core.ConfigureAction(props, layout.ActionNames.RetrieveLogicalNamesActionName);
 
-
-
-        //const globalContext = SBCore.SBShop.Form.GetGlobalContext();
-        //const serverURL = globalContext.getClientUrl();
-
-        //const data = {
-        //    ActionName: layout.ActionNames.RetrieveLogicalNamesActionName,
-        //    Parameters: JSON.stringify({
-        //        LogicalNamePrefix: logicalName,
-        //    }),
-        //};
-
-        //var logicalName;
-
-        //const res = await fetch(`${serverURL}/api/data/v9.2/new_${layout.ActionNames.RetrieveLogicalNamesActionName}`,
-        //    {
-        //        method: "POST",
-        //        headers: {
-        //            "Accept": "application/json",
-        //            "Content-Type": "application/json; charset=utf-8",
-        //            "OData-MaxVersion": "4.0",
-        //            "OData-Version": "4.0"
-        //        },
-        //        body: JSON.stringify(data),
-        //    });
-        //const json = await res.json();
-
-        //if ("error" in json) {
-        //    SBCore.SBShop.UI.OpenAlertDialog(`An error occured: ${json.error.message}`);
-        //}
-
-        //const response = await JSON.parse(json.Response);
-        //const value = await JSON.parse(response.Value);
-        //logicalNames = value.LogicalNames;
-
-        //return logicalNames;
+        const res = await SBCore.SBShop.Form.ExecuteWebApi(retrieveFunc);
+        const value = await JSON.parse(res.Value);
+        return value.LogicalNames;
     }
 
     async function callRetrieveViewNamesAction(logicalName, viewName) {
-        const globalContext = SBCore.SBShop.Form.GetGlobalContext();
-        const serverURL = globalContext.getClientUrl();
-
-        const data = {
-            ActionName: layout.ActionNames.RetrieveViewNamesActionName,
-            Parameters: JSON.stringify({
-                LogicalName: logicalName,
-                ViewNamePrefix: viewName
-            }),
-        };
-
-        var viewName;
-
-        const res = await fetch(`${serverURL}/api/data/v9.2/new_${layout.ActionNames.RetrieveViewNamesActionName}`,
-            {
-                method: "POST",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json; charset=utf-8",
-                    "OData-MaxVersion": "4.0",
-                    "OData-Version": "4.0"
-                },
-                body: JSON.stringify(data),
-            });
-        const json = await res.json();
-
-        if ("error" in json) {
-            SBCore.SBShop.UI.OpenAlertDialog(`An error occured: ${json.error.message}`);
+        const props = {
+            LogicalName: logicalName,
+            ViewNamePrefix: viewName
         }
+        var retrieveFunc = new SBContact.SBShop.Core.ConfigureAction(props, layout.ActionNames.RetrieveViewNamesActionName);
 
-        const response = await JSON.parse(json.Response);
-        const value = await JSON.parse(response.Value);
-        viewName = value.ViewNames;
-
-        return viewName;
+        const res = await SBCore.SBShop.Form.ExecuteWebApi(retrieveFunc);
+        const value = await JSON.parse(res.Value);
+        return value.ViewNames;
     }
 
     /************************************************************************************
@@ -290,6 +193,28 @@ SBContact.SBShop.Core = (function () {
     * Helpers
     ************************************************************************************/
 
+    function configureAction(props, actionName) {
+        const underscoreIndex = actionName.indexOf("_") + 1;
+
+        const action = {
+            ActionName: actionName.substring(underscoreIndex),
+            Parameters: JSON.stringify(props),
+        };
+
+        action.getMetadata = function () {
+            return {
+                boundParameter: null,
+                parameterTypes: {
+                    ActionName: { typeName: "Edm.String", structuralProperty: 1 },
+                    Parameters: { typeName: "Edm.String", structuralProperty: 1 }
+                },
+                operationType: 0,
+                operationName: actionName,
+            }
+        };
+
+        return action;
+    }
 
     return {
         CallSearchDublicatedPhoneAction: callSearchDublicatedPhoneAction,
@@ -301,15 +226,3 @@ SBContact.SBShop.Core = (function () {
         OpenExportToExcelModal: openExportToExcelModal
     };
 })();
-
-SBContact.SBShop.Core.ConfigureAction.prototype.getMetadata = function () {
-    return {
-        boundParameter: null,
-        parameterTypes: {
-            ActionName: { typeName: "Edm.String", structuralProperty: 1 },
-            Parameters: { typeName: "Edm.String", structuralProperty: 1 }
-        },
-        operationType: 0,
-        operationName: this.OperationName,
-    }
-}

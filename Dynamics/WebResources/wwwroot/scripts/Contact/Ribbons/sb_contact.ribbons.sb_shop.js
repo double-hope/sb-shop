@@ -21,6 +21,7 @@ SBContact.SBShop.Ribbon = (function (window, document) {
      ************************************************************************************/
 
     function onRibbonClick() {
+        console.log(SBContact);
         SBContact.SBShop.Core.OpenExportToExcelModal();
     }
 
