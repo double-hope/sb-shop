@@ -1,0 +1,12 @@
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\bin\Debug\net462\SB.Workflows.dll
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\bin\Debug\net462\SB.Workflows.pdb
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\bin\Debug\net462\Microsoft.Crm.Sdk.Proxy.dll
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\bin\Debug\net462\Microsoft.Xrm.Sdk.dll
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\obj\Debug\net462\SB.Workflows.csproj.AssemblyReference.cache
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\obj\Debug\net462\SB.Workflows.GeneratedMSBuildEditorConfig.editorconfig
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\obj\Debug\net462\SB.Workflows.AssemblyInfoInputs.cache
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\obj\Debug\net462\SB.Workflows.AssemblyInfo.cs
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\obj\Debug\net462\SB.Workflows.csproj.CoreCompileInputs.cache
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\obj\Debug\net462\SB.Workflows.csproj.CopyComplete
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\obj\Debug\net462\SB.Workflows.dll
+C:\SMART business\Courses\Learning_Path_for_Junior_CRM_Developer_2022\CompanyStandarts\SB Shop\Dynamics\SB.Workflows\obj\Debug\net462\SB.Workflows.pdb

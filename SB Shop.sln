@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dynamics", "Dynamics", "{45188C07-4501-4466-BE00-1594D1390B10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebResources", "Dynamics\WebResources\WebResources.csproj", "{6EC54D0B-91B4-4AF3-B6A0-5BA418161F5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SB.Workflows", "Dynamics\SB.Workflows\SB.Workflows.csproj", "{BB403773-7955-48BF-A5E2-8931D3D75261}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SB.Actions", "Dynamics\SB.Actions\SB.Actions.csproj", "{83F5F1AA-EEE8-4030-ADA4-C42DF89D2A20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{065B32F6-37B5-4190-96EC-3F87E4228FC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{80D9A950-2893-442C-AF86-EE9ED758A566}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{E6CC1B02-3079-4C7E-AA43-626D3776A17F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{6F947EEB-7412-43AA-926E-09BB13F0BD68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{6335E9B9-E840-494A-8739-445FA7D6993C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SB.Shared", "SB.Shared\SB.Shared.shproj", "{28C1E1A0-3847-4DA0-8150-7CF6ACEE0145}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SB.Shop.AzureFunctionApp", "Web\Functions\SB.Shop.AzureFunctionApp\SB.Shop.AzureFunctionApp.csproj", "{87500900-1B90-4776-B7C2-587038DA45D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SB.SBShop.Check", "Dynamics\Plugins\SB.SBShop.Check\SB.SBShop.Check.csproj", "{5217C946-6EA5-4A74-9AC2-6214CC887023}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SB.SBShop.LoyaltyCard", "Dynamics\Plugins\SB.SBShop.LoyaltyCard\SB.SBShop.LoyaltyCard.csproj", "{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EC54D0B-91B4-4AF3-B6A0-5BA418161F5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC54D0B-91B4-4AF3-B6A0-5BA418161F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC54D0B-91B4-4AF3-B6A0-5BA418161F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC54D0B-91B4-4AF3-B6A0-5BA418161F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB403773-7955-48BF-A5E2-8931D3D75261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB403773-7955-48BF-A5E2-8931D3D75261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB403773-7955-48BF-A5E2-8931D3D75261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB403773-7955-48BF-A5E2-8931D3D75261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83F5F1AA-EEE8-4030-ADA4-C42DF89D2A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F5F1AA-EEE8-4030-ADA4-C42DF89D2A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F5F1AA-EEE8-4030-ADA4-C42DF89D2A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F5F1AA-EEE8-4030-ADA4-C42DF89D2A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6335E9B9-E840-494A-8739-445FA7D6993C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6335E9B9-E840-494A-8739-445FA7D6993C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6335E9B9-E840-494A-8739-445FA7D6993C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6335E9B9-E840-494A-8739-445FA7D6993C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87500900-1B90-4776-B7C2-587038DA45D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87500900-1B90-4776-B7C2-587038DA45D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87500900-1B90-4776-B7C2-587038DA45D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87500900-1B90-4776-B7C2-587038DA45D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5217C946-6EA5-4A74-9AC2-6214CC887023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5217C946-6EA5-4A74-9AC2-6214CC887023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5217C946-6EA5-4A74-9AC2-6214CC887023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5217C946-6EA5-4A74-9AC2-6214CC887023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6EC54D0B-91B4-4AF3-B6A0-5BA418161F5E} = {45188C07-4501-4466-BE00-1594D1390B10}
+		{BB403773-7955-48BF-A5E2-8931D3D75261} = {45188C07-4501-4466-BE00-1594D1390B10}
+		{83F5F1AA-EEE8-4030-ADA4-C42DF89D2A20} = {45188C07-4501-4466-BE00-1594D1390B10}
+		{065B32F6-37B5-4190-96EC-3F87E4228FC5} = {45188C07-4501-4466-BE00-1594D1390B10}
+		{E6CC1B02-3079-4C7E-AA43-626D3776A17F} = {80D9A950-2893-442C-AF86-EE9ED758A566}
+		{6F947EEB-7412-43AA-926E-09BB13F0BD68} = {80D9A950-2893-442C-AF86-EE9ED758A566}
+		{87500900-1B90-4776-B7C2-587038DA45D0} = {E6CC1B02-3079-4C7E-AA43-626D3776A17F}
+		{5217C946-6EA5-4A74-9AC2-6214CC887023} = {065B32F6-37B5-4190-96EC-3F87E4228FC5}
+		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2} = {065B32F6-37B5-4190-96EC-3F87E4228FC5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89B6394D-B583-490C-96C1-C5E39F5BFE16}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SB.Shared\SB.Shared.projitems*{28c1e1a0-3847-4da0-8150-7cf6acee0145}*SharedItemsImports = 13
+		SB.Shared\SB.Shared.projitems*{3db924f3-3ac3-4209-9d1a-ecbc46d036d2}*SharedItemsImports = 5
+		SB.Shared\SB.Shared.projitems*{5217c946-6ea5-4a74-9ac2-6214cc887023}*SharedItemsImports = 5
+		SB.Shared\SB.Shared.projitems*{83f5f1aa-eee8-4030-ada4-c42df89d2a20}*SharedItemsImports = 5
+		SB.Shared\SB.Shared.projitems*{87500900-1b90-4776-b7c2-587038da45d0}*SharedItemsImports = 5
+		SB.Shared\SB.Shared.projitems*{bb403773-7955-48bf-a5e2-8931d3d75261}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal

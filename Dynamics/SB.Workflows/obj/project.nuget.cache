@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "2lVjysdmo9lKiEzZB+1C5IiFrE8VK0wbU1SdrCRvfH8Ali8LFS99bUMPFanOHktFE7G+GSrC3t8fmzqSqDYnmA==",
+  "success": true,
+  "projectFilePath": "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Dynamics\\SB.Workflows\\SB.Workflows.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\napro\\.nuget\\packages\\microsoft.crmsdk.coreassemblies\\9.0.2.34\\microsoft.crmsdk.coreassemblies.9.0.2.34.nupkg.sha512"
+  ],
+  "logs": []
+}

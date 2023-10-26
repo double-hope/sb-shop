@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Dynamics\\Plugins\\SB.SBShop.Check\\SB.SBShop.Check.csproj": {}
+  },
+  "projects": {
+    "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Dynamics\\Plugins\\SB.SBShop.Check\\SB.SBShop.Check.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Dynamics\\Plugins\\SB.SBShop.Check\\SB.SBShop.Check.csproj",
+        "projectName": "SB.SBShop.Check",
+        "projectPath": "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Dynamics\\Plugins\\SB.SBShop.Check\\SB.SBShop.Check.csproj",
+        "packagesPath": "C:\\Users\\napro\\.nuget\\packages\\",
+        "outputPath": "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Dynamics\\Plugins\\SB.SBShop.Check\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\napro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "Microsoft.CrmSdk.CoreAssemblies": {
+              "target": "Package",
+              "version": "[9.0.2.50, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

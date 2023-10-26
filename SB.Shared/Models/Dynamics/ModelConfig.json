@@ -1,0 +1,350 @@
+{
+  "Entities": [
+    {
+      "Fields": [
+        {
+          "DisplayName": "Name",
+          "LogicalName": "sb_name",
+          "EntityLogicalName": "sb_shop"
+        }
+      ],
+      "LogicalName": "sb_shop",
+      "DisplayName": "Shop",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "sb_shopid",
+      "PrimaryNameAttribute": "sb_name"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "Number",
+          "LogicalName": "sb_number",
+          "EntityLogicalName": "sb_check"
+        },
+        {
+          "DisplayName": "Shopid",
+          "LogicalName": "sb_shopid",
+          "EntityLogicalName": "sb_check"
+        },
+        {
+          "DisplayName": "Totaldiscountcost",
+          "LogicalName": "sb_totaldiscountcost",
+          "EntityLogicalName": "sb_check"
+        },
+        {
+          "DisplayName": "Totalamount",
+          "LogicalName": "sb_totalamount",
+          "EntityLogicalName": "sb_check"
+        }
+      ],
+      "LogicalName": "sb_check",
+      "DisplayName": "Check",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "sb_checkid",
+      "PrimaryNameAttribute": "sb_name"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "Cost",
+          "LogicalName": "sb_cost",
+          "EntityLogicalName": "sb_checkproduct"
+        },
+        {
+          "DisplayName": "Checkid",
+          "LogicalName": "sb_checkid",
+          "EntityLogicalName": "sb_checkproduct"
+        },
+        {
+          "DisplayName": "Productid",
+          "LogicalName": "sb_productid",
+          "EntityLogicalName": "sb_checkproduct"
+        },
+        {
+          "DisplayName": "Discount",
+          "LogicalName": "sb_discount",
+          "EntityLogicalName": "sb_checkproduct"
+        },
+        {
+          "DisplayName": "Totalcost",
+          "LogicalName": "sb_totalcost",
+          "EntityLogicalName": "sb_checkproduct"
+        }
+      ],
+      "LogicalName": "sb_checkproduct",
+      "DisplayName": "Check Product",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "sb_checkproductid",
+      "PrimaryNameAttribute": "sb_name"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "Article",
+          "LogicalName": "sb_article",
+          "EntityLogicalName": "sb_product"
+        },
+        {
+          "DisplayName": "Name",
+          "LogicalName": "sb_name",
+          "EntityLogicalName": "sb_product"
+        }
+      ],
+      "LogicalName": "sb_product",
+      "DisplayName": "Product",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "sb_productid",
+      "PrimaryNameAttribute": "sb_name"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "Number",
+          "LogicalName": "sb_number",
+          "EntityLogicalName": "sb_loyaltycard"
+        },
+        {
+          "DisplayName": "Clientid",
+          "LogicalName": "sb_clientid",
+          "EntityLogicalName": "sb_loyaltycard"
+        },
+        {
+          "DisplayName": "Firstname",
+          "LogicalName": "sb_firstname",
+          "EntityLogicalName": "sb_loyaltycard"
+        },
+        {
+          "DisplayName": "Lastname",
+          "LogicalName": "sb_lastname",
+          "EntityLogicalName": "sb_loyaltycard"
+        },
+        {
+          "DisplayName": "Phone",
+          "LogicalName": "sb_phone",
+          "EntityLogicalName": "sb_loyaltycard"
+        },
+        {
+          "DisplayName": "Email",
+          "LogicalName": "sb_email",
+          "EntityLogicalName": "sb_loyaltycard"
+        }
+      ],
+      "LogicalName": "sb_loyaltycard",
+      "DisplayName": "Loyaltycard",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "sb_loyaltycardid",
+      "PrimaryNameAttribute": "sb_name"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "CurrentNumber",
+          "LogicalName": "sb_currentnumber",
+          "EntityLogicalName": "sb_autonumerator"
+        },
+        {
+          "DisplayName": "Entity",
+          "LogicalName": "sb_entity",
+          "EntityLogicalName": "sb_autonumerator"
+        },
+        {
+          "DisplayName": "Prefix",
+          "LogicalName": "sb_prefix",
+          "EntityLogicalName": "sb_autonumerator"
+        }
+      ],
+      "LogicalName": "sb_autonumerator",
+      "DisplayName": "Autonumerator",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "sb_autonumeratorid",
+      "PrimaryNameAttribute": "sb_name"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "Birthdaythisyear",
+          "LogicalName": "sb_birthdaythisyear",
+          "EntityLogicalName": "contact"
+        },
+        {
+          "DisplayName": "EMailAddress1",
+          "LogicalName": "emailaddress1",
+          "EntityLogicalName": "contact"
+        },
+        {
+          "DisplayName": "MobilePhone",
+          "LogicalName": "mobilephone",
+          "EntityLogicalName": "contact"
+        },
+        {
+          "DisplayName": "FirstName",
+          "LogicalName": "firstname",
+          "EntityLogicalName": "contact"
+        },
+        {
+          "DisplayName": "LastName",
+          "LogicalName": "lastname",
+          "EntityLogicalName": "contact"
+        }
+      ],
+      "LogicalName": "contact",
+      "DisplayName": "Contact",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "contactid",
+      "PrimaryNameAttribute": "fullname"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "Name",
+          "LogicalName": "name",
+          "EntityLogicalName": "savedquery"
+        },
+        {
+          "DisplayName": "FetchXml",
+          "LogicalName": "fetchxml",
+          "EntityLogicalName": "savedquery"
+        },
+        {
+          "DisplayName": "LayoutXml",
+          "LogicalName": "layoutxml",
+          "EntityLogicalName": "savedquery"
+        },
+        {
+          "DisplayName": "ReturnedTypeCode",
+          "LogicalName": "returnedtypecode",
+          "EntityLogicalName": "savedquery"
+        }
+      ],
+      "LogicalName": "savedquery",
+      "DisplayName": "View",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "savedqueryid",
+      "PrimaryNameAttribute": "name"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "InternalEMailAddress",
+          "LogicalName": "internalemailaddress",
+          "EntityLogicalName": "systemuser"
+        }
+      ],
+      "LogicalName": "systemuser",
+      "DisplayName": "User",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "systemuserid",
+      "PrimaryNameAttribute": "fullname"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "From",
+          "LogicalName": "from",
+          "EntityLogicalName": "email"
+        },
+        {
+          "DisplayName": "To",
+          "LogicalName": "to",
+          "EntityLogicalName": "email"
+        },
+        {
+          "DisplayName": "DirectionCode",
+          "LogicalName": "directioncode",
+          "EntityLogicalName": "email"
+        }
+      ],
+      "LogicalName": "email",
+      "DisplayName": "Email",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "activityid",
+      "PrimaryNameAttribute": "subject"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "TemplateTypeCode",
+          "LogicalName": "templatetypecode",
+          "EntityLogicalName": "template"
+        }
+      ],
+      "LogicalName": "template",
+      "DisplayName": "Email Template",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "templateid",
+      "PrimaryNameAttribute": "title"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "PartyId",
+          "LogicalName": "partyid",
+          "EntityLogicalName": "activityparty"
+        }
+      ],
+      "LogicalName": "activityparty",
+      "DisplayName": "Activity Party",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "activitypartyid",
+      "PrimaryNameAttribute": "partyidname"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "Name",
+          "LogicalName": "sb_name",
+          "EntityLogicalName": "sb_customsettings"
+        },
+        {
+          "DisplayName": "Emailtemplateid",
+          "LogicalName": "sb_emailtemplateid",
+          "EntityLogicalName": "sb_customsettings"
+        },
+        {
+          "DisplayName": "Powerautomatelink",
+          "LogicalName": "sb_powerautomatelink",
+          "EntityLogicalName": "sb_customsettings"
+        },
+        {
+          "DisplayName": "Solutionname",
+          "LogicalName": "sb_solutionname",
+          "EntityLogicalName": "sb_customsettings"
+        }
+      ],
+      "LogicalName": "sb_customsettings",
+      "DisplayName": "SB Custom Settings",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "sb_customsettingsid",
+      "PrimaryNameAttribute": "sb_name"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "UniqueName",
+          "LogicalName": "uniquename",
+          "EntityLogicalName": "solution"
+        }
+      ],
+      "LogicalName": "solution",
+      "DisplayName": "Solution",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "solutionid",
+      "PrimaryNameAttribute": "friendlyname"
+    },
+    {
+      "Fields": [
+        {
+          "DisplayName": "ComponentType",
+          "LogicalName": "componenttype",
+          "EntityLogicalName": "solutioncomponent"
+        }
+      ],
+      "LogicalName": "solutioncomponent",
+      "DisplayName": "Solution Component",
+      "ModelFileName": null,
+      "PrimaryIdAttribute": "solutioncomponentid",
+      "PrimaryNameAttribute": null
+    }
+  ],
+  "DefaultNamespace": "SB.Shared.Models.Dynamics"
+}

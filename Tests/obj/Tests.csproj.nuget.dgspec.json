@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Tests\\Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Tests\\Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Tests\\Tests.csproj",
+        "projectName": "Tests",
+        "projectPath": "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Tests\\Tests.csproj",
+        "packagesPath": "C:\\Users\\napro\\.nuget\\packages\\",
+        "outputPath": "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\napro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "FakeXrmEasy.365": {
+              "target": "Package",
+              "version": "[1.57.1, )"
+            },
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.16, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[3.1.16, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.10.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

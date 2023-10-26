@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-wrapper input {
+            all: unset;
+            padding: 5px 10px;
+            border: 1px solid rgb(116, 39, 116);
+            border-radius: 5px;
+        }
+
+        .input-wrapper input:disabled {
+            border: 1px solid rgb(146, 141, 146);
+            background-color: rgb(213, 213, 213);
+        }
+
+        button {
+            all: unset;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-self: center;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: rgb(116, 39, 116);
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: rgb(83, 28, 83);
+        }
+
+        button:disabled {
+            cursor: default;
+            background-color: rgb(146, 141, 146);
+        }
+
+        .variants {
+            display: none;
+            position: absolute;
+            top: 110%;
+            right: 0;
+            left: 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px 0 rgba(60,22,60,0.75);
+            z-index: 100;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .variant-elem {
+            cursor: pointer;
+            padding: 5px 10px;
+            user-select: none;
+            border-radius: 5px;
+        }
+        .variant-elem:hover {
+            background-color: rgba(83, 28, 83, 0.178);
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="input-wrapper">
+            <label for="logicalName">Entity logical name:</label>
+            <input type="text" id="logicalName" oninput="SBContact.SBShop.Ribbon.OnLogicalNameChange()" placeholder="contact">
+            <div class="variants" id="logicalNameVariants"></div>
+        </div>
+        <div class="input-wrapper">
+            <label for="viewName">Name of the view:</label>
+            <input type="text" id="viewName" oninput="SBContact.SBShop.Ribbon.OnViewNameChange()" disabled placeholder="Active Contacts">
+            <div class="variants" id="viewNameVariants"></div>
+        </div>
+        <button onclick="SBContact.SBShop.Ribbon.OnSendExcelFileActionCall()" id="button" disabled>
+            Send
+        </button>
+    </form>
+    <script src="sb_core.sb_shop.js"></script>
+    <script src="sb_contact.sb_shop.js"></script>
+    <script src="sb_contact.ribbons.sb_shop.js"></script>
+</body>
+</html>

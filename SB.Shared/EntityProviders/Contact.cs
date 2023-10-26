@@ -1,0 +1,87 @@
+﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using SB.Shared.Extensions;
+using SB.Shared.Models.Dynamics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+
+namespace SB.Shared.EntityProviders
+{
+    public class Contact : ContactModel
+    {
+        public Contact(IOrganizationService service) : base(service) { }
+        public Contact(IOrganizationService service, Guid id) : base(id, service) { }
+        public Contact(Guid id, ColumnSet columnSet, IOrganizationService service)
+                : base(service.Retrieve(LogicalName, id, columnSet), service) { }
+        public Contact(Entity entity, IOrganizationService service) : base(entity, service) { }
+
+
+        public Contact GetDublicatedPhoneUser(string phoneNumber)
+        {
+            var query = new QueryExpression(LogicalName)
+            {
+                ColumnSet = new ColumnSet(Fields.MobilePhone),
+                Criteria = new FilterExpression
+                {
+                    Conditions =
+                    {
+                        new ConditionExpression
+                        {
+                            AttributeName = Fields.MobilePhone,
+                            Operator = ConditionOperator.Equal,
+                            Values = {  phoneNumber }
+                        }
+                    }
+                }
+            };
+
+            var contact = _service.RetrieveMultiple(query)
+                .ToEntityList<Contact>(_service)
+                .FirstOrDefault();
+
+            return contact;
+        }
+
+        public IEnumerable<Contact> GetContacts(Expression<Func<Contact, bool>> filter = null, params string[] columns)
+        {
+            var query = new QueryExpression(LogicalName)
+            {
+                ColumnSet = new ColumnSet(columns.Length > 0 ? columns : Fields.All)
+            };
+
+            var contacts = _service.RetrieveMultiple(query).Entities.AsQueryable().Select(entity => new Contact(entity, _service));
+
+            if (filter != null) contacts = contacts.Where(filter);
+
+            return contacts;
+        }
+
+        public Contact GetContactById(Guid contactId, params string[] columns)
+        {
+            var query = new QueryExpression(LogicalName)
+            {
+                ColumnSet = new ColumnSet(columns.Length > 0 ? columns : Fields.All),
+                Criteria = new FilterExpression
+                {
+                    Conditions =
+                    {
+                        new ConditionExpression
+                        { 
+                            AttributeName = Fields.PrimaryId,
+                            Operator = ConditionOperator.Equal,
+                            Values = { contactId }
+                        }
+                    }
+                }
+            };
+
+            var contact = _service.RetrieveMultiple(query)
+                .ToEntityList<Contact>(_service)
+                .FirstOrDefault();
+
+            return contact;
+        }
+    }
+}

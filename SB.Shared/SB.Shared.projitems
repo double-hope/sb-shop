@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>8b87c7b6-d4e2-4604-bdab-b3e82abe0d73</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SB.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\ActivityParty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\Autonumerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\Check.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\Contact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\Email.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\EmailTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\Loyaltycard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\Solution.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\SolutionComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityProviders\View.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DateTimeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\EntityExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ListExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\OrganizationServiceExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)JsonSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\ActionResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\RetrieveViewNamesParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\RetrieveLogicalNamesParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\SearchDublicatedPhoneParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\SendBirthdayEmailParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\SendExcelFlowParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\ActivityPartyModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\AutonumeratorModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\CheckModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\CheckProductModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\ContactModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\EmailModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\EmailTemplateModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\EntityBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\LoyaltycardModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\ProductModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\SBCustomSettingsModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\ShopModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\SolutionComponentModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\SolutionModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\UserModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\ViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebUtilities.cs" />
+  </ItemGroup>
+</Project>
