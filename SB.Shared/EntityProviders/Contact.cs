@@ -44,16 +44,16 @@ namespace SB.Shared.EntityProviders
             return contact;
         }
 
-        public IEnumerable<Contact> GetContacts(Expression<Func<Contact, bool>> filter = null, params string[] columns)
+        public IEnumerable<Contact> GetContacts(FilterExpression filter = null, params string[] columns)
         {
             var query = new QueryExpression(LogicalName)
             {
                 ColumnSet = new ColumnSet(columns.Length > 0 ? columns : Fields.All)
             };
 
-            var contacts = _service.RetrieveMultiple(query).Entities.AsQueryable().Select(entity => new Contact(entity, _service));
+            if (filter != null) query.Criteria = filter;
 
-            if (filter != null) contacts = contacts.Where(filter);
+            var contacts = _service.RetrieveMultiple(query).ToEntityList<Contact>(_service);
 
             return contacts;
         }

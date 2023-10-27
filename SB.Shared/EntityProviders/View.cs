@@ -49,7 +49,7 @@ namespace SB.Shared.EntityProviders
             return view;
         }
 
-        public List<View> GetAllEntityViews(string entityName, string viewNamePrefix)
+        public IEnumerable<View> GetAllEntityViews(string entityName, string viewNamePrefix)
         {
             var query = new QueryExpression(LogicalName)
             {

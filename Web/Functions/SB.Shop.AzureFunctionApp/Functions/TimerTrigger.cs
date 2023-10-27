@@ -3,6 +3,7 @@ using System.Text;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
+using Microsoft.Xrm.Sdk.Query;
 using SB.Shared.EntityProviders;
 using SB.Shared.Models.Dynamics;
 using SB.Shop.AzureFunctionApp.Helpers;
@@ -29,7 +30,21 @@ namespace SB.Shop.AzureFunctionApp.Functions
 
             var date = DateTime.Now.ToString("dd.MM");
             var contactProvider = new Contact(_organizationServiceConfigurator.Configure());
-            var contacts = contactProvider.GetContacts(x => x.Birthdaythisyear.Equals(date), ContactModel.Fields.Birthdaythisyear);
+            
+            var filter = new FilterExpression
+            {
+                Conditions =
+                {
+                    new ConditionExpression
+                    {
+                        AttributeName = ContactModel.Fields.Birthdaythisyear,
+                        Operator = ConditionOperator.Equal,
+                        Values = { date }
+                    }
+                }
+            };
+
+            var contacts = contactProvider.GetContacts(filter, ContactModel.Fields.Birthdaythisyear);
 
             try
             {
