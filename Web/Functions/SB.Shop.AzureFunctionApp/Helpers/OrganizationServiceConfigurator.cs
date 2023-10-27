@@ -2,6 +2,7 @@
 using Microsoft.Xrm.Sdk;
 using System.Net;
 using System;
+using Polly;
 
 namespace SB.Shop.AzureFunctionApp.Helpers
 {
@@ -15,16 +16,21 @@ namespace SB.Shop.AzureFunctionApp.Helpers
 
                 var connectionString = Environment.GetEnvironmentVariable("DynamicsUser");
 
-                var serviceClient = new ServiceClient(connectionString);
+                var retryPolicy = Policy
+                    .Handle<Exception>()
+                    .Retry(3);
 
-                if (serviceClient != null)
+                var serviceClient = retryPolicy.Execute(() =>
                 {
-                    return serviceClient;
-                }
-                else
-                {
+                    var client = new ServiceClient(connectionString);
+                    if (client.IsReady)
+                    {
+                        return client;
+                    }
                     throw new Exception("Error");
-                }
+                });
+
+                return serviceClient;
             }
             catch (Exception)
             {
