@@ -1,6 +1,4 @@
 using System;
-using System.Text;
-using Microsoft.Azure.ServiceBus;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk.Query;
@@ -13,21 +11,18 @@ namespace SB.Shop.AzureFunctionApp.Functions
     public class TimerTrigger
     {
         private IOrganizationServiceConfigurator _organizationServiceConfigurator;
+        private IAzureQuequeClientService _azureQuequeClientService;
 
-        public TimerTrigger(IOrganizationServiceConfigurator organizationServiceConfigurator)
+        public TimerTrigger(IOrganizationServiceConfigurator organizationServiceConfigurator, IAzureQuequeClientService azureQuequeClientService)
         {
             _organizationServiceConfigurator = organizationServiceConfigurator;
+            _azureQuequeClientService = azureQuequeClientService;
         }
 
         [FunctionName("TimerTrigger")]
         //public void Run([TimerTrigger("*/5 * * * * *")] TimerInfo myTimer, ILogger log)
         public void Run([TimerTrigger("0 0 9 * * *")] TimerInfo myTimer, ILogger log)
         {
-            var connectionString = Environment.GetEnvironmentVariable("AzureWebJobsServiceBus");
-            var queueName = Environment.GetEnvironmentVariable("QueueName");
-
-            var client = new QueueClient(connectionString, queueName);
-
             var date = DateTime.Now.ToString("dd.MM");
             var contactProvider = new Contact(_organizationServiceConfigurator.Configure());
             
@@ -50,9 +45,7 @@ namespace SB.Shop.AzureFunctionApp.Functions
             {
                 foreach (var c in contacts)
                 {
-                    var messageBody = c.Id.ToString();
-                    var message = new Message(Encoding.UTF8.GetBytes(messageBody));
-                    client.SendAsync(message).Wait();
+                    _azureQuequeClientService.SendMessage(c.Id.ToString());
                 }
             }
             catch (Exception)
@@ -61,7 +54,7 @@ namespace SB.Shop.AzureFunctionApp.Functions
             }
             finally
             {
-                client.CloseAsync().Wait();
+                _azureQuequeClientService.CloseClient();
             }
         }
     }

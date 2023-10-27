@@ -12,6 +12,7 @@ namespace SB.Shop.AzureFunctionApp
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddTransient<IOrganizationServiceConfigurator, OrganizationServiceConfigurator>();
+            builder.Services.AddTransient<IAzureQuequeClientService, AzureQuequeClientService>();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
