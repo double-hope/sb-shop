@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using SB.Shared.Dynamics.EntityProviders;
 using SB.Shared.Extensions;
+using SB.Shared.Models;
 using SB.Shared.Models.Actions;
 using SB.Shared.Models.Dynamics;
 using System;
@@ -31,11 +32,11 @@ namespace SB.Shared.EntityProviders
             var email = GetEmail();
             var parameterCollection = new ParameterCollection
             {
-                { "View", new EntityReference(ViewModel.LogicalName, (Guid)view.Id) },
-                { "FetchXml", view.FetchXml },
-                { "LayoutXml", view.LayoutXml },
-                { "QueryApi", "" },
-                { "QueryParameters", new InputArgumentCollection() },
+                { nameof(ParameterNames.View), new EntityReference(ViewModel.LogicalName, (Guid)view.Id) },
+                { nameof(ParameterNames.FetchXml), view.FetchXml },
+                { nameof(ParameterNames.LayoutXml), view.LayoutXml },
+                { nameof(ParameterNames.QueryApi), "" },
+                { nameof(ParameterNames.QueryParameters), new InputArgumentCollection() },
             };
 
             var organizationRequest = new OrganizationRequest("ExportToExcel")

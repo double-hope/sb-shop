@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Query;
-using SB.Shared.Extensions;
+using SB.Shared.Models;
 using SB.Shared.Models.Dynamics;
 using System;
 using System.Linq;
@@ -54,14 +53,14 @@ namespace SB.Shared.EntityProviders
                 var entityQuery = new QueryExpression()
                 {
                     EntityName = "entity",
-                    ColumnSet = new ColumnSet("logicalname"),
+                    ColumnSet = new ColumnSet(EntityParameters.LogicalName),
                     Criteria = new FilterExpression(LogicalOperator.And)
                     {
                         FilterOperator = LogicalOperator.And,
                         Conditions =
                             {
-                                new ConditionExpression("entityid", ConditionOperator.Equal, entityId),
-                                new ConditionExpression("logicalname", ConditionOperator.Like, "%" + logicalNamePrefix + "%"),
+                                new ConditionExpression(EntityParameters.EntityId, ConditionOperator.Equal, entityId),
+                                new ConditionExpression(EntityParameters.LogicalName, ConditionOperator.Like, "%" + logicalNamePrefix + "%"),
                             },
                     }
                 };

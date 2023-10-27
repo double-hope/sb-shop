@@ -5,6 +5,7 @@ using SB.Shared.EntityProviders;
 using SB.Shared.Dynamics.EntityProviders;
 using SB.Shared.Models.Dynamics;
 using System.Collections.Generic;
+using SB.Shared.Models;
 
 namespace SB.Actions.Messages
 {
@@ -30,7 +31,7 @@ namespace SB.Actions.Messages
 
             foreach (var entity in solutionEntities.Entities)
             {
-                logicalNames.Add(entity.GetAttributeValue<string>("logicalname"));
+                logicalNames.Add(entity.GetAttributeValue<string>(EntityParameters.LogicalName));
             }
 
             var res = new RetrieveLogicalNamesResponse

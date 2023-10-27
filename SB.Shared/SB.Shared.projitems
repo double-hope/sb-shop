@@ -26,12 +26,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ListExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\OrganizationServiceExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)JsonSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ActionNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\ActionResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\RetrieveViewNamesParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\RetrieveLogicalNamesParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\SearchDublicatedPhoneParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\SendBirthdayEmailParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Actions\SendExcelFlowParams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\EntityParameters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\ActivityPartyModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\AutonumeratorModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\CheckModel.cs" />
@@ -48,6 +50,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\SolutionModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\UserModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\ViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ParameterNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WebUtilities.cs" />
   </ItemGroup>
 </Project>

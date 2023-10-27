@@ -2,6 +2,7 @@
 using Microsoft.Xrm.Sdk.Extensions;
 using SB.Actions.Messages;
 using SB.Shared;
+using SB.Shared.Models;
 using SB.Shared.Models.Actions;
 using System;
 
@@ -33,19 +34,19 @@ namespace SB.Actions
 
                 switch (actionName)
                 {
-                    case nameof(SearchDublicatedPhone):
+                    case nameof(ActionNames.SearchDublicatedPhone):
                         new SearchDublicatedPhone(adminService).Execute(parameters, ref response);
                         break;
-                    case nameof(SendExcelFlow):
+                    case nameof(ActionNames.SendExcelFlow):
                         new SendExcelFlow(service, context).Execute(parameters, ref response);
                         break;
-                    case nameof(SendBirthdayEmail):
+                    case nameof(ActionNames.SendBirthdayEmail):
                         new SendBirthdayEmail(adminService, context).Execute(parameters, ref response);
                         break;
-                    case nameof(RetrieveLogicalNames):
+                    case nameof(ActionNames.RetrieveLogicalNames):
                         new RetrieveLogicalNames(service, context).Execute(parameters, ref response);
                         break;
-                    case nameof(RetrieveViewNames):
+                    case nameof(ActionNames.RetrieveViewNames):
                         new RetrieveViewNames(service, context).Execute(parameters, ref response);
                         break;
                 }
