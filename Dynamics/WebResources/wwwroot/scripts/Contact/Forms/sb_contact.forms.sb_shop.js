@@ -38,6 +38,6 @@ SBContact.SBShop.Form = (function (window, document) {
 
     return {
         OnSave: onSave,
-        OnPhoneNumberChanged: onPhoneNumberChanged,
+        OnPhoneNumberChanged: onPhoneNumberChanged
     };
 })(window, document);

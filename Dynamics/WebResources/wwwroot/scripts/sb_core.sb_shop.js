@@ -102,7 +102,7 @@ SBCore.SBShop.UI = (function () {
         onSave: onSave,
         NavigateTo: navigateTo,
         OpenConfirmDialog: openConfirmDialog,
-        OpenAlertDialog: openAlertDialog,
+        OpenAlertDialog: openAlertDialog
     };
 })();
 

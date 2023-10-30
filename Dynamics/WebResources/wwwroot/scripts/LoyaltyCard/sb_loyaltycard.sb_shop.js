@@ -41,6 +41,6 @@ SBLoyaltyCard.SBShop.Core = (function () {
     ************************************************************************************/
 
     return {
-        GetContactsToFilter: getContactsToFilter,
+        GetContactsToFilter: getContactsToFilter
     };
 })();

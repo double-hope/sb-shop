@@ -31,6 +31,6 @@ SBLoyaltyCard.SBShop.Form = (function (window, document) {
 
 
     return {
-        OnClientClicked: onClientClicked,
+        OnClientClicked: onClientClicked
     };
 })(window, document);
