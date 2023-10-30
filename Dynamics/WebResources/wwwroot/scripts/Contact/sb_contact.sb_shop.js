@@ -101,7 +101,7 @@ SBContact.SBShop.Core = (function () {
         }
     }
 
-    function sendExcelFileActionCall(viewName, logicalName) {
+    async function sendExcelFileActionCall(viewName, logicalName) {
         const props = {
             EntityName: logicalName,
             ViewName: viewName
@@ -109,7 +109,11 @@ SBContact.SBShop.Core = (function () {
 
         var exportFunc = new SBContact.SBShop.Core.ConfigureAction(props, layout.ActionNames.SendExcelActionName);
 
-        SBCore.SBShop.Form.ExecuteWebApi(exportFunc);
+        const res = await SBCore.SBShop.Form.ExecuteWebApi(exportFunc);
+
+        if (res.Status === 1) {
+            SBCore.SBShop.UI.OpenAlertDialog("Message was sent successfully!");
+        }
     }
 
     async function callRetrieveLogicalNamesAction(logicalName) {

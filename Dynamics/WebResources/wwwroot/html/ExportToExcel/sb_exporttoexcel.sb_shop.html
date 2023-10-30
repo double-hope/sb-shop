@@ -28,17 +28,17 @@
             gap: 5px;
         }
 
-        .input-wrapper input {
-            all: unset;
-            padding: 5px 10px;
-            border: 1px solid rgb(116, 39, 116);
-            border-radius: 5px;
-        }
+            .input-wrapper input {
+                all: unset;
+                padding: 5px 10px;
+                border: 1px solid rgb(116, 39, 116);
+                border-radius: 5px;
+            }
 
-        .input-wrapper input:disabled {
-            border: 1px solid rgb(146, 141, 146);
-            background-color: rgb(213, 213, 213);
-        }
+                .input-wrapper input:disabled {
+                    border: 1px solid rgb(146, 141, 146);
+                    background-color: rgb(213, 213, 213);
+                }
 
         button {
             all: unset;
@@ -53,14 +53,14 @@
             border-radius: 5px;
         }
 
-        button:hover {
-            background-color: rgb(83, 28, 83);
-        }
+            button:hover {
+                background-color: rgb(83, 28, 83);
+            }
 
-        button:disabled {
-            cursor: default;
-            background-color: rgb(146, 141, 146);
-        }
+            button:disabled {
+                cursor: default;
+                background-color: rgb(146, 141, 146);
+            }
 
         .variants {
             display: none;
@@ -85,9 +85,10 @@
             user-select: none;
             border-radius: 5px;
         }
-        .variant-elem:hover {
-            background-color: rgba(83, 28, 83, 0.178);
-        }
+
+            .variant-elem:hover {
+                background-color: rgba(83, 28, 83, 0.178);
+            }
     </style>
 </head>
 <body>
@@ -102,7 +103,7 @@
             <input type="text" id="viewName" oninput="SBContact.SBShop.Ribbon.OnViewNameChange()" disabled placeholder="Active Contacts">
             <div class="variants" id="viewNameVariants"></div>
         </div>
-        <button onclick="SBContact.SBShop.Ribbon.OnSendExcelFileActionCall()" id="button" disabled>
+        <button onclick="SBContact.SBShop.Ribbon.OnSendExcelFileActionCall()" id="button" type="button" disabled>
             Send
         </button>
     </form>
