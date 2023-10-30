@@ -5,7 +5,6 @@ using SB.Shared.Models.Dynamics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace SB.Shared.EntityProviders
 {
@@ -16,7 +15,6 @@ namespace SB.Shared.EntityProviders
         public Contact(Guid id, ColumnSet columnSet, IOrganizationService service)
                 : base(service.Retrieve(LogicalName, id, columnSet), service) { }
         public Contact(Entity entity, IOrganizationService service) : base(entity, service) { }
-
 
         public Contact GetDublicatedPhoneUser(string phoneNumber)
         {
@@ -68,7 +66,7 @@ namespace SB.Shared.EntityProviders
                     Conditions =
                     {
                         new ConditionExpression
-                        { 
+                        {
                             AttributeName = Fields.PrimaryId,
                             Operator = ConditionOperator.Equal,
                             Values = { contactId }

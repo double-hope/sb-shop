@@ -5,6 +5,7 @@ using SB.Shop.AzureFunctionApp.Helpers;
 using System.IO;
 
 [assembly: FunctionsStartup(typeof(SB.Shop.AzureFunctionApp.Program))]
+
 namespace SB.Shop.AzureFunctionApp
 {
     internal class Program : FunctionsStartup

@@ -12,6 +12,5 @@ namespace SB.Shared.EntityProviders
         public Loyaltycard(Guid id, ColumnSet columnSet, IOrganizationService service)
                 : base(service.Retrieve(LogicalName, id, columnSet), service) { }
         public Loyaltycard(Entity entity, IOrganizationService service) : base(entity, service) { }
-
     }
 }

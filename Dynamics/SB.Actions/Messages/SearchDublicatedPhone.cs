@@ -8,6 +8,7 @@ namespace SB.Actions.Messages
     public class SearchDublicatedPhone : IActionTracking
     {
         private readonly IOrganizationService _organizationService;
+
         public SearchDublicatedPhone(IOrganizationService organizationService)
         {
             _organizationService = organizationService;

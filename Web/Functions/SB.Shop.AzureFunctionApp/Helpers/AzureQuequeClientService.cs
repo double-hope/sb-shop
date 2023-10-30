@@ -10,7 +10,7 @@ namespace SB.Shop.AzureFunctionApp.Helpers
 
         private QueueClient ConfigureClient()
         {
-            if(_client == null)
+            if (_client == null)
             {
                 var connectionString = Environment.GetEnvironmentVariable("AzureWebJobsServiceBus");
                 var queueName = Environment.GetEnvironmentVariable("QueueName");

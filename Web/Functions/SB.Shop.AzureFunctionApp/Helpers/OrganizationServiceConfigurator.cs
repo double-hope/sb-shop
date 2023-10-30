@@ -1,8 +1,8 @@
 ﻿using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk;
-using System.Net;
-using System;
 using Polly;
+using System;
+using System.Net;
 
 namespace SB.Shop.AzureFunctionApp.Helpers
 {

@@ -26,7 +26,7 @@ namespace SB.Shared.EntityProviders
 
             return user.InternalEMailAddress;
         }
-        
+
         public void SendFileToUser(View view, Settings settings)
         {
             var email = GetEmail();

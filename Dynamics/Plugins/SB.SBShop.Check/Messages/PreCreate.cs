@@ -1,14 +1,13 @@
 ﻿using Microsoft.Xrm.Sdk;
-using SB.Shared.Extensions;
 using SB.Shared.EntityProviders;
-using System;
+using SB.Shared.Extensions;
 using SB.Shared.Models.Dynamics;
+using System;
 
 namespace SB.SBShop.Check.Messages
 {
     public class PreCreate : IPlugin
     {
-
         public void Execute(IServiceProvider serviceProvider)
         {
             var tracer = (ITracingService)serviceProvider.GetService(typeof(ITracingService));

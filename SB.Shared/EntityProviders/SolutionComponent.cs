@@ -19,7 +19,7 @@ namespace SB.Shared.EntityProviders
         {
             var solution = new Solution(_service).GetCurrentSolution(solutionName);
 
-            QueryExpression query = new QueryExpression(LogicalName)
+            var query = new QueryExpression(LogicalName)
             {
                 ColumnSet = new ColumnSet(Fields.ObjectId),
                 Criteria = new FilterExpression()

@@ -8,7 +8,6 @@ namespace SB.SBShop.LoyaltyCard.Messages
 {
     public class PreCreate : IPlugin
     {
-
         public void Execute(IServiceProvider serviceProvider)
         {
             var tracer = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
@@ -34,7 +33,7 @@ namespace SB.SBShop.LoyaltyCard.Messages
 
                 target[LoyaltycardModel.Fields.Number] = $"{autoNumerator.Prefix} - {autoNumerator.CurrentNumber + 1}";
 
-                if(loyaltyCard.Clientid != null)
+                if (loyaltyCard.Clientid != null)
                 {
                     var contact = new Contact(service).GetContactById(loyaltyCard.Clientid.Id);
                     target[LoyaltycardModel.Fields.Firstname] = contact.FirstName;

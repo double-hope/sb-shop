@@ -1,10 +1,10 @@
-using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk.Query;
 using SB.Shared.EntityProviders;
 using SB.Shared.Models.Dynamics;
 using SB.Shop.AzureFunctionApp.Helpers;
+using System;
 
 namespace SB.Shop.AzureFunctionApp.Functions
 {
@@ -20,12 +20,11 @@ namespace SB.Shop.AzureFunctionApp.Functions
         }
 
         [FunctionName("TimerTrigger")]
-        //public void Run([TimerTrigger("*/5 * * * * *")] TimerInfo myTimer, ILogger log)
         public void Run([TimerTrigger("0 0 9 * * *")] TimerInfo myTimer, ILogger log)
         {
             var date = DateTime.Now.ToString("dd.MM");
             var contactProvider = new Contact(_organizationServiceConfigurator.Configure());
-            
+
             var filter = new FilterExpression
             {
                 Conditions =
