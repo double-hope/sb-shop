@@ -78,7 +78,7 @@ SBContact.SBShop.Core = (function () {
                     var pageInput = {
                         pageType: "entityrecord",
                         entityName: SBCore.SBShop.Form.EntityNames.Contact,
-                        entityId: res.DublicatedUserId,
+                        entityId: value.DublicatedUserId,
                     };
                     SBCore.SBShop.UI.NavigateTo(pageInput, 2, 1, 50);
                 }
