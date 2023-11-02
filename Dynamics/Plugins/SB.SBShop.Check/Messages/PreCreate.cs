@@ -32,6 +32,7 @@ namespace SB.SBShop.Check.Messages
                 }
 
                 target[CheckModel.Fields.Number] = $"{autoNumerator.Prefix} - {autoNumerator.CurrentNumber + 1}";
+                target[CheckModel.Fields.PrimaryName] = $"{autoNumerator.Prefix} - {autoNumerator.CurrentNumber + 1}";
             }
             catch (Exception e)
             {
