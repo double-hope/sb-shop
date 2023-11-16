@@ -1,8 +1,6 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using Microsoft.Xrm.Sdk.Query;
 using SB.Shared.EntityProviders;
-using SB.Shared.Models.Dynamics;
 using SB.Shop.AzureFunctionApp.Helpers;
 using System;
 
@@ -22,23 +20,7 @@ namespace SB.Shop.AzureFunctionApp.Functions
         [FunctionName("TimerTrigger")]
         public void Run([TimerTrigger("0 0 9 * * *")] TimerInfo myTimer, ILogger log)
         {
-            var date = DateTime.Now.ToString("dd.MM");
-            var contactProvider = new Contact(_organizationServiceConfigurator.Configure());
-
-            var filter = new FilterExpression
-            {
-                Conditions =
-                {
-                    new ConditionExpression
-                    {
-                        AttributeName = ContactModel.Fields.Birthdaythisyear,
-                        Operator = ConditionOperator.Equal,
-                        Values = { date }
-                    }
-                }
-            };
-
-            var contacts = contactProvider.GetContacts(filter, ContactModel.Fields.Birthdaythisyear);
+            var contacts= new Contact(_organizationServiceConfigurator.organizationService).GetContactsBirthdayToday();
 
             try
             {

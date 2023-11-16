@@ -27,9 +27,9 @@ namespace SB.Shop.AzureFunctionApp.Functions
                 ContactId = myQueueItem,
             };
 
-            _organizationServiceConfigurator.Configure()
+            _organizationServiceConfigurator
                 .Execute(
-                new OrganizationRequest($"new_{actionName}")
+                new OrganizationRequest($"{actionName}")
                 {
                     Parameters =
                     {

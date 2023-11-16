@@ -8,34 +8,45 @@ namespace SB.Shop.AzureFunctionApp.Helpers
 {
     public class OrganizationServiceConfigurator : IOrganizationServiceConfigurator
     {
-        public IOrganizationService Configure()
+        public IOrganizationService organizationService { get { return Configure(); } }
+        private IOrganizationService Configure()
         {
-            try
+            if (organizationService == null)
             {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-                var connectionString = Environment.GetEnvironmentVariable("DynamicsUser");
-
-                var retryPolicy = Policy
-                    .Handle<Exception>()
-                    .Retry(3);
-
-                var serviceClient = retryPolicy.Execute(() =>
+                try
                 {
-                    var client = new ServiceClient(connectionString);
-                    if (client.IsReady)
-                    {
-                        return client;
-                    }
-                    throw new Exception("Error");
-                });
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-                return serviceClient;
+                    var connectionString = Environment.GetEnvironmentVariable("DynamicsUser");
+
+                    var retryPolicy = Policy
+                        .Handle<Exception>()
+                        .Retry(3);
+
+                    var serviceClient = retryPolicy.Execute(() =>
+                    {
+                        var client = new ServiceClient(connectionString);
+                        if (client.IsReady)
+                        {
+                            return client;
+                        }
+                        throw new Exception("Error");
+                    });
+
+                    return serviceClient;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            
+            return organizationService;
+        }
+
+        public void Execute(OrganizationRequest request)
+        {
+            organizationService.Execute(request);
         }
     }
 }
