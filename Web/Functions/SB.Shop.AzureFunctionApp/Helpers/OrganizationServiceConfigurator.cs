@@ -1,6 +1,5 @@
 ﻿using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk;
-using Polly;
 using System;
 using System.Net;
 
@@ -18,29 +17,25 @@ namespace SB.Shop.AzureFunctionApp.Helpers
                     ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                     var connectionString = Environment.GetEnvironmentVariable("DynamicsUser");
-
-                    var retryPolicy = Policy
-                        .Handle<Exception>()
-                        .Retry(3);
-
-                    var serviceClient = retryPolicy.Execute(() =>
+                    
+                    var client = new ServiceClient(connectionString)
                     {
-                        var client = new ServiceClient(connectionString);
-                        if (client.IsReady)
-                        {
-                            return client;
-                        }
-                        throw new Exception("Error");
-                    });
+                        MaxRetryCount = 3,
+                        RetryPauseTime = TimeSpan.FromSeconds(5)
+                    };
 
-                    return serviceClient;
+                    if (client.IsReady)
+                    {
+                        return client;
+                    }
+                    throw new Exception("Error");
                 }
                 catch (Exception)
                 {
                     throw;
                 }
             }
-            
+
             return organizationService;
         }
 
