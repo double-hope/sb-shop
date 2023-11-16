@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk.Query;
 using SB.Shared.Extensions;
 using SB.Shared.Models.Dynamics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,7 +43,7 @@ namespace SB.Shared.EntityProviders
             return contact;
         }
 
-        public IEnumerable<Contact> GetContacts(FilterExpression filter = null, params string[] columns)
+        public List<Contact> GetContacts(FilterExpression filter = null, params string[] columns)
         {
             var query = new QueryExpression(LogicalName)
             {
@@ -80,6 +81,35 @@ namespace SB.Shared.EntityProviders
                 .FirstOrDefault();
 
             return contact;
+        }
+
+        public List<Contact> GetContactsBirthdayToday()
+        {
+            var date = DateTime.Now.ToString("dd.MM");
+
+            var filter = new FilterExpression
+            {
+                Conditions =
+                {
+                    new ConditionExpression
+                    {
+                        AttributeName = ContactModel.Fields.Birthdaythisyear,
+                        Operator = ConditionOperator.Equal,
+                        Values = { date }
+                    }
+                }
+            };
+
+            var query = new QueryExpression(LogicalName)
+            {
+                ColumnSet = new ColumnSet(Birthdaythisyear),
+                Criteria = filter
+            };
+
+            var contacts = _service.RetrieveMultiple(query)
+               .ToEntityList<Contact>(_service);
+
+            return contacts;
         }
     }
 }
