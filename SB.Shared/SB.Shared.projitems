@@ -51,6 +51,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\UserModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dynamics\ViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ParameterNames.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Plugins\AutonumeratorSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WebUtilities.cs" />
   </ItemGroup>
 </Project>

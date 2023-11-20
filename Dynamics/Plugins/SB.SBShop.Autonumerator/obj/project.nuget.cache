@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "6uoeKZlFdx+WsMFBbjjY1z0OLRg+ql06gBT/Ac7EDSxSX5f7t47vKy7eK8tj94XsrTN2o0Dj2KqNbhwWOIkwlQ==",
+  "success": true,
+  "projectFilePath": "C:\\SMART business\\Courses\\Learning_Path_for_Junior_CRM_Developer_2022\\CompanyStandarts\\SB Shop\\Dynamics\\Plugins\\SB.SBShop.Autonumerator\\SB.SBShop.Autonumerator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\napro\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\microsoft.crmsdk.coreassemblies\\9.0.2.51\\microsoft.crmsdk.coreassemblies.9.0.2.51.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\system.text.json\\6.0.7\\system.text.json.6.0.7.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\napro\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

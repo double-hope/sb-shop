@@ -1,7 +1,8 @@
 ﻿using Microsoft.Xrm.Sdk;
-using SB.Shared.EntityProviders;
+using SB.Shared;
 using SB.Shared.Extensions;
 using SB.Shared.Models.Dynamics;
+using SB.Shared.Models.Plugins;
 using System;
 
 namespace SB.SBShop.Check.Messages
@@ -19,20 +20,11 @@ namespace SB.SBShop.Check.Messages
             {
                 var target = (Entity)context.InputParameters["Target"];
                 var check = target.ToEntity<Shared.EntityProviders.Check>(service);
-                var autoNumerator = new Autonumerator(service).GetByTargetLogicalName(check.GetLogicalName());
-
-                if (autoNumerator == null)
+                if (context.ParentContext.SharedVariables.Contains("AutoNumerator"))
                 {
-                    autoNumerator = new Autonumerator(service);
-                    autoNumerator.CreateAutonumerator(check.GetLogicalName());
+                    var autoNumerator = JsonSerializer.Deserialize<AutonumeratorSerializer>(context.ParentContext.SharedVariables["AutoNumerator"].ToString());
+                    target[CheckModel.Fields.PrimaryName] = $"{autoNumerator.Prefix} - {autoNumerator.CurrentNumber + 1}";
                 }
-                else
-                {
-                    autoNumerator.UpdateAutonumerator(autoNumerator);
-                }
-
-                target[CheckModel.Fields.Number] = $"{autoNumerator.Prefix} - {autoNumerator.CurrentNumber + 1}";
-                target[CheckModel.Fields.PrimaryName] = $"{autoNumerator.Prefix} - {autoNumerator.CurrentNumber + 1}";
             }
             catch (Exception e)
             {

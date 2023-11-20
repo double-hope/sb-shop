@@ -19,19 +19,6 @@ namespace SB.SBShop.LoyaltyCard.Messages
             {
                 var target = (Entity)context.InputParameters["Target"];
                 var loyaltyCard = target.ToEntity<Loyaltycard>(service);
-                var autoNumerator = new Autonumerator(service).GetByTargetLogicalName(loyaltyCard.GetLogicalName());
-
-                if (autoNumerator == null)
-                {
-                    autoNumerator = new Autonumerator(service);
-                    autoNumerator.CreateAutonumerator(loyaltyCard.GetLogicalName());
-                }
-                else
-                {
-                    autoNumerator.UpdateAutonumerator(autoNumerator);
-                }
-
-                target[LoyaltycardModel.Fields.Number] = $"{autoNumerator.Prefix} - {autoNumerator.CurrentNumber + 1}";
 
                 if (loyaltyCard.Clientid != null)
                 {

@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SB.SBShop.Check", "Dynamics
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SB.SBShop.LoyaltyCard", "Dynamics\Plugins\SB.SBShop.LoyaltyCard\SB.SBShop.LoyaltyCard.csproj", "{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SB.SBShop.Autonumerator", "Dynamics\Plugins\SB.SBShop.Autonumerator\SB.SBShop.Autonumerator.csproj", "{05A8CCE3-B22F-4AAF-A4C4-894CEC2776DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A8CCE3-B22F-4AAF-A4C4-894CEC2776DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A8CCE3-B22F-4AAF-A4C4-894CEC2776DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A8CCE3-B22F-4AAF-A4C4-894CEC2776DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A8CCE3-B22F-4AAF-A4C4-894CEC2776DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,11 +83,13 @@ Global
 		{87500900-1B90-4776-B7C2-587038DA45D0} = {E6CC1B02-3079-4C7E-AA43-626D3776A17F}
 		{5217C946-6EA5-4A74-9AC2-6214CC887023} = {065B32F6-37B5-4190-96EC-3F87E4228FC5}
 		{3DB924F3-3AC3-4209-9D1A-ECBC46D036D2} = {065B32F6-37B5-4190-96EC-3F87E4228FC5}
+		{05A8CCE3-B22F-4AAF-A4C4-894CEC2776DD} = {065B32F6-37B5-4190-96EC-3F87E4228FC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89B6394D-B583-490C-96C1-C5E39F5BFE16}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SB.Shared\SB.Shared.projitems*{05a8cce3-b22f-4aaf-a4c4-894cec2776dd}*SharedItemsImports = 5
 		SB.Shared\SB.Shared.projitems*{28c1e1a0-3847-4da0-8150-7cf6acee0145}*SharedItemsImports = 13
 		SB.Shared\SB.Shared.projitems*{3db924f3-3ac3-4209-9d1a-ecbc46d036d2}*SharedItemsImports = 5
 		SB.Shared\SB.Shared.projitems*{5217c946-6ea5-4a74-9ac2-6214cc887023}*SharedItemsImports = 5

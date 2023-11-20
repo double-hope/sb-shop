@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>DynamicsKey.snk</AssemblyOriginatorKeyFile>
+    <RootNamespace>SB.SBShop.Autonumerator</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.51" />
+  </ItemGroup>
+  <Import Project="..\..\..\SB.Shared\SB.Shared.projitems" Label="Shared" />
+
+</Project>
