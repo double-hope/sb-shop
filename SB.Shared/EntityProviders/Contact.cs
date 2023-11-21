@@ -93,7 +93,7 @@ namespace SB.Shared.EntityProviders
                 {
                     new ConditionExpression
                     {
-                        AttributeName = ContactModel.Fields.Birthdaythisyear,
+                        AttributeName = Fields.Birthdaythisyear,
                         Operator = ConditionOperator.Equal,
                         Values = { date }
                     }
@@ -102,7 +102,7 @@ namespace SB.Shared.EntityProviders
 
             var query = new QueryExpression(LogicalName)
             {
-                ColumnSet = new ColumnSet(Birthdaythisyear),
+                ColumnSet = new ColumnSet(Fields.Birthdaythisyear),
                 Criteria = filter
             };
 

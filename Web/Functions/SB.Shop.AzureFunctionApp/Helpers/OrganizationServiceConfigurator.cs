@@ -7,7 +7,7 @@ namespace SB.Shop.AzureFunctionApp.Helpers
 {
     public class OrganizationServiceConfigurator : IOrganizationServiceConfigurator
     {
-        public IOrganizationService organizationService { get { return Configure(); } }
+        private IOrganizationService organizationService;
         private IOrganizationService Configure()
         {
             if (organizationService == null)
@@ -39,9 +39,15 @@ namespace SB.Shop.AzureFunctionApp.Helpers
             return organizationService;
         }
 
+        public IOrganizationService GetOrganizationService()
+        {
+            var service = Configure();
+            return service;
+        }
         public void Execute(OrganizationRequest request)
         {
-            organizationService.Execute(request);
+            var service = Configure();
+            service.Execute(request);
         }
     }
 }

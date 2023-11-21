@@ -27,13 +27,15 @@ namespace SB.Shop.AzureFunctionApp.Functions
                 ContactId = myQueueItem,
             };
 
+            var underscoreIndex = actionName.IndexOf("_") + 1;
+
             _organizationServiceConfigurator
                 .Execute(
-                new OrganizationRequest($"{actionName}")
+                new OrganizationRequest(actionName)
                 {
                     Parameters =
                     {
-                        { "ActionName", actionName },
+                        { "ActionName", actionName.Substring(underscoreIndex) },
                         { "Parameters", JsonSerializer.Serialize(Parameters) },
                     }
                 });

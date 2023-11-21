@@ -20,7 +20,7 @@ namespace SB.Shop.AzureFunctionApp.Functions
         [FunctionName("TimerTrigger")]
         public void Run([TimerTrigger("0 0 9 * * *")] TimerInfo myTimer, ILogger log)
         {
-            var contacts= new Contact(_organizationServiceConfigurator.organizationService).GetContactsBirthdayToday();
+            var contacts = new Contact(_organizationServiceConfigurator.GetOrganizationService()).GetContactsBirthdayToday();
 
             try
             {

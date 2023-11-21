@@ -4,7 +4,7 @@ namespace SB.Shop.AzureFunctionApp.Helpers
 {
     public interface IOrganizationServiceConfigurator
     {
-        IOrganizationService organizationService { get; }
+        IOrganizationService GetOrganizationService();
         void Execute(OrganizationRequest reques);
     }
 }

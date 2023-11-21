@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xrm.Sdk;
 using SB.Shared;
 using SB.Shared.EntityProviders;
-using SB.Shared.Extensions;
 using SB.Shared.Models;
-using SB.Shared.Models.Dynamics;
 using SB.Shared.Models.Plugins;
 using System;
 
