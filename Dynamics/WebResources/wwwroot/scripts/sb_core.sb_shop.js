@@ -71,6 +71,16 @@ SBCore.SBShop.UI = (function () {
         SBCore.SBShop.Form.GetControl(fieldName).clearNotification(guid);
     }
 
+    function showProgressIndicator(message) {
+        if (typeof Xrm === "undefined") Xrm = parent.Xrm;
+        Xrm.Utility.showProgressIndicator(message);
+    }
+
+    function closeProgressIndicator() {
+        if (typeof Xrm === "undefined") Xrm = parent.Xrm;
+        Xrm.Utility.closeProgressIndicator();
+    }
+
     /************************************************************************************
     * Helpers
     ************************************************************************************/
@@ -97,6 +107,8 @@ SBCore.SBShop.UI = (function () {
     return {
         ShowFieldError: showFieldError,
         ClearFieldError: clearFieldError,
+        ShowProgressIndicator: showProgressIndicator,
+        CloseProgressIndicator: closeProgressIndicator,
 
         onLoad: onLoad,
         onSave: onSave,
@@ -151,8 +163,10 @@ SBCore.SBShop.Form = (function () {
     async function executeWebApi(func) {
         if (typeof Xrm === "undefined") Xrm = parent.Xrm;
 
+        SBCore.SBShop.UI.ShowProgressIndicator("Checking user phone...");
         const response = await Xrm.WebApi.online.execute(func);
-
+        SBCore.SBShop.UI.CloseProgressIndicator();
+        
         if (response.ok) {
             console.log("Status: %s %s", response.status, response.statusText);
             const json = await response.json();
