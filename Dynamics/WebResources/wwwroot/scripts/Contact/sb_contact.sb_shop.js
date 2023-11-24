@@ -156,6 +156,7 @@ SBContact.SBShop.Core = (function () {
         }
 
         const phoneRegex = new RegExp(/^\d{10}(\d{2})?$/);
+        const fullPhoneRegex = new RegExp(/^\+\d{2} \(\d{3}\) \d{3} \d{2} \d{2}$/);
 
         if (phoneRegex.test(mobilePhone.getValue())) {
             SBCore.SBShop.UI.ClearFieldError(layout.Fields.MobilePhone, fieldErrorGuid);
@@ -177,6 +178,9 @@ SBContact.SBShop.Core = (function () {
                     break;
                 }
             }
+        }
+        else if (fullPhoneRegex.test(mobilePhone.getValue())) {
+            SBCore.SBShop.UI.ClearFieldError(layout.Fields.MobilePhone, fieldErrorGuid);
         }
         else {
             SBCore.SBShop.UI.ShowFieldError(layout.Fields.MobilePhone, "not valid!", fieldErrorGuid);
