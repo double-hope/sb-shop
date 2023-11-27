@@ -68,7 +68,7 @@ SBContact.SBShop.Core = (function () {
         }
         var dublicatedPhoneFunc = new SBContact.SBShop.Core.ConfigureAction(props, layout.ActionNames.DublicatedPhoneActionName);
 
-        const res = await SBCore.SBShop.Form.ExecuteWebApi(dublicatedPhoneFunc);
+        const res = await SBCore.SBShop.Form.ExecuteWebApi(dublicatedPhoneFunc, "Checking user phone...");
         const value = await JSON.parse(res.Value);
 
         if (value.DublicatedUserId) {
@@ -109,7 +109,7 @@ SBContact.SBShop.Core = (function () {
 
         var exportFunc = new SBContact.SBShop.Core.ConfigureAction(props, layout.ActionNames.SendExcelActionName);
 
-        const res = await SBCore.SBShop.Form.ExecuteWebApi(exportFunc);
+        const res = await SBCore.SBShop.Form.ExecuteWebApi(exportFunc, "Sending view...");
 
         if (res.Status === 1) {
             SBCore.SBShop.UI.OpenAlertDialog("Message was sent successfully!");

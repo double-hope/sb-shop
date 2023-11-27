@@ -160,12 +160,12 @@ SBCore.SBShop.Form = (function () {
         }
     };
 
-    async function executeWebApi(func) {
+    async function executeWebApi(func, message) {
         if (typeof Xrm === "undefined") Xrm = parent.Xrm;
 
-        SBCore.SBShop.UI.ShowProgressIndicator("Checking user phone...");
+        if (message) SBCore.SBShop.UI.ShowProgressIndicator(message);
         const response = await Xrm.WebApi.online.execute(func);
-        SBCore.SBShop.UI.CloseProgressIndicator();
+        if (message) SBCore.SBShop.UI.CloseProgressIndicator();
         
         if (response.ok) {
             console.log("Status: %s %s", response.status, response.statusText);
